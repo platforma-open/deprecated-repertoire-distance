@@ -15,7 +15,7 @@
     "turbo": "catalog:",
     "@changesets/cli": "catalog:"
   },
-  "pnpm": {
+  "//": {
     "overrides": {
       "@milaboratories/pl-model-common": "file:/Users/poslavskysv/Projects/milab/platforma/platforma-sdk/lib/model/common/package.tgz",
       "@platforma-sdk/model": "file:/Users/poslavskysv/Projects/milab/platforma/platforma-sdk/sdk/model/package.tgz",
