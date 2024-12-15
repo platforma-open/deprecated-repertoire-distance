@@ -1,0 +1,43 @@
+// gene usage
+ll := import("@platforma-sdk/workflow-tengo:ll")
+wf := import("@platforma-sdk/workflow-tengo:workflow")
+exec := import("@platforma-sdk/workflow-tengo:exec")
+assets := import("@platforma-sdk/workflow-tengo:assets")
+render := import("@platforma-sdk/workflow-tengo:render")
+pframes := import("@platforma-sdk/workflow-tengo:pframes")
+json := import("json")
+util := import(":util")
+
+mixcrTpl := assets.importTemplate(":mixcr")
+importTsvTpl := assets.importTemplate(":importTsv")
+
+wf.prepare(func(args){
+	return {
+		clns: wf.resolve(args.clnsRef)
+	}
+})
+
+wf.body(func(args) {
+	mixcr := render.create(mixcrTpl, args)
+
+	importOps := {
+		sampleIdAxisSpec: args.clns.spec.axesSpec[0]
+	}
+	for m in util.METRICS {
+		importOps[m] = mixcr.output(m)
+	} 
+
+	importTsv := render.create(importTsvTpl, importOps)
+
+	overlap := importTsv.output("pf")
+	
+	return {
+		outputs: {
+			pf: pframes.exportFrame(overlap)
+		},
+
+		exports: {
+			pf: overlap
+		}
+	}
+})

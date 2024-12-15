@@ -1,0 +1,15 @@
+
+METRICS := ["F1Index", "F2Index", "JaccardIndex", "Pearson", "PearsonAll", "RelativeDiversity", "SharedClonotypes"]
+
+FILE_NAME_PREFIX_LEN := {}
+for m in METRICS {
+    FILE_NAME_PREFIX_LEN[m] = len(m) + 3
+}
+
+FILE_NAME_SUFFIX_LEN := len(".tsv")
+
+export {
+    METRICS: METRICS,
+    FILE_NAME_PREFIX_LEN: FILE_NAME_PREFIX_LEN,
+    FILE_NAME_SUFFIX_LEN: FILE_NAME_SUFFIX_LEN
+}

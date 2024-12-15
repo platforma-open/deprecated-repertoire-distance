@@ -1,0 +1,62 @@
+// mixcr postanalysis individual # gene usage
+
+self := import("@platforma-sdk/workflow-tengo:tpl")
+exec := import("@platforma-sdk/workflow-tengo:exec")
+assets := import("@platforma-sdk/workflow-tengo:assets")
+times := import("times")
+json := import("json")
+
+util := import(":util")
+
+mixcrSw := assets.importSoftware("@platforma-open/milaboratories.software-mixcr:main")
+
+self.defineOutputs(util.METRICS)
+
+self.body(func(args) {
+	clns := args.clns.data
+
+	filesMap := {}
+	for k, v in clns.inputs() {
+		filesMap[json.decode(k)[0]] = v
+	}
+
+	cmdBuilder := exec.builder().
+		software(mixcrSw).
+		arg("postanalysis").
+		arg("overlap").
+		arg("--default-downsampling").arg(args.downsampling).
+		arg("--default-weight-function").arg(args.weight).
+		secret("MI_LICENSE", "MI_LICENSE")
+
+	if args.dropOutliers == true {
+		cmdBuilder = cmdBuilder.arg("--drop-outliers")
+	}
+
+	if args.onlyProductive == true {
+		cmdBuilder = cmdBuilder.arg("--only-productive")
+	}
+
+	for name, f in filesMap {
+		cmdBuilder = cmdBuilder.arg(name + ".clns")
+	}
+	cmdBuilder = cmdBuilder.arg("r.json")
+
+	for name, f in filesMap {
+		cmdBuilder = cmdBuilder.addFile(name + ".clns", f)
+	}
+
+	for m in util.METRICS {
+		cmdBuilder = cmdBuilder.saveFileSet(m, "^r\\." + m + "\\..*\\.tsv$")
+	}
+
+	cmdBuilder = cmdBuilder.cache(48 * times.hour);
+
+	run := cmdBuilder.run()
+
+	outputs := {}
+	for m in util.METRICS {
+		outputs[m] = run.getFileSet(m)
+	}
+
+	return outputs
+})

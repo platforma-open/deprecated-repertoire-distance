@@ -1,0 +1,111 @@
+
+ll := import("@platforma-sdk/workflow-tengo:ll")
+self := import("@platforma-sdk/workflow-tengo:tpl")
+exec := import("@platforma-sdk/workflow-tengo:exec")
+assets := import("@platforma-sdk/workflow-tengo:assets")
+pframes := import("@platforma-sdk/workflow-tengo:pframes")
+pColumn := import("@platforma-sdk/workflow-tengo:pframes.pcolumn")
+xsv := import("@platforma-sdk/workflow-tengo:pframes.xsv")
+text := import("text")
+json := import("json")
+util := import(":util")
+
+self.defineOutputs(["pf"])
+
+addDomain := func(axisSpec, domain) {
+	axisSpec = copy(axisSpec)
+	if is_undefined(axisSpec["domain"]) {
+		axisSpec["domain"] = {}
+	}
+
+	for k, v in domain {
+		axisSpec.domain[k] = v
+	}
+
+	return axisSpec
+}
+
+self.body(func(args) {
+
+	tsvMap := pColumn.resourceMapBuilder(/* key length*/ 2 )
+
+	for m in util.METRICS {
+		for fileName, file in args[m] {
+			chain := fileName[util.FILE_NAME_PREFIX_LEN[m]:(len(fileName) - util.FILE_NAME_SUFFIX_LEN)]
+			tsvMap.add([m, chain], file)
+		}
+	}
+
+	tsvMap = tsvMap.build()
+
+	spec := {
+		"axes": [
+			{
+				column: "sample1",
+				preProcess: [{
+					type: "regexpReplace",
+					pattern: "^(.*)\\.clns$",
+					replacement: "$1"
+				}],
+				spec: addDomain(args.sampleIdAxisSpec, {"pl7.app/overlap" : "left", "pl7.app/label" : "Sample"})
+			},
+			{
+				column: "sample2",
+				preProcess: [{
+					type: "regexpReplace",
+					pattern: "^(.*)\\.clns$",
+					replacement: "$1"
+				}],
+				spec: addDomain(args.sampleIdAxisSpec, {"pl7.app/overlap" : "right", "pl7.app/label" : "Sample"})
+			}
+			],
+		columns: [
+			{
+				column: "value",
+				id: "value",
+				allowNA: true,
+				spec: {
+					name: "pl7.app/vdj/overlap",
+					valueType: "Float",
+					annotations: {
+						"pl7.app/label": "Repertoire Overlap"
+					}
+				}
+			}
+		],
+		storageFormat: "Binary",
+		partitionKeyLength: 0
+	}
+	
+	pf := xsv.importFileMap(tsvMap, "tsv", spec, {
+		additionalAxesSpec: [
+			{
+				"name": "pl7.app/vdj/overlapMetric",
+				"type": "String",
+				"annotations": {
+					"pl7.app/label": "Overlap Metric"
+					// ,
+					// "pl7.app/axisNature": "heterogeneous"
+				}
+			},
+			{
+				"name": "pl7.app/vdj/chain",
+				"type": "String",
+				"annotations": {
+					"pl7.app/label": "Chain",
+					"pl7.app/axisNature": "scaleCompatible"
+				}
+			}
+			],
+		transpose: {
+			pAxisIdx: 0,
+			pAxisNameOverride: "sample1",
+			sAxisName: "sample2",
+			valueName: "value"
+		}
+	})
+
+	return {
+		pf: pf
+	}
+})
