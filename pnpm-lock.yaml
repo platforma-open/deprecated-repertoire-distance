@@ -25,8 +25,8 @@ catalogs:
       specifier: ^2.4.11
       version: 2.5.0
     '@platforma-sdk/model':
-      specifier: ^1.20.6
-      version: 1.20.6
+      specifier: ^1.20.7
+      version: 1.20.11
     '@platforma-sdk/tengo-builder':
       specifier: ^1.17.3
       version: 1.17.4
@@ -34,7 +34,7 @@ catalogs:
       specifier: ^1.8.5
       version: 1.8.5
     '@platforma-sdk/ui-vue':
-      specifier: ^1.20.7
+      specifier: ^1.20.10
       version: 1.20.10
     '@platforma-sdk/workflow-tengo':
       specifier: ^2.8.1
@@ -98,7 +98,7 @@ importers:
         version: 1.1.13(d3-dispatch@3.0.1)(d3-path@3.1.0)(d3-scale-chromatic@3.1.0)(typescript@5.6.3)
       '@platforma-sdk/model':
         specifier: 'catalog:'
-        version: 1.20.6
+        version: 1.20.11
     devDependencies:
       '@platforma-sdk/block-tools':
         specifier: 'catalog:'
@@ -130,7 +130,7 @@ importers:
     devDependencies:
       '@platforma-sdk/model':
         specifier: 'catalog:'
-        version: 1.20.6
+        version: 1.20.11
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 5.1.5(vite@6.0.3(@types/node@22.9.0)(yaml@2.6.1))(vue@3.5.12(typescript@5.6.3))
@@ -1118,6 +1118,9 @@ packages:
   '@platforma-sdk/block-tools@2.5.0':
     resolution: {integrity: sha512-aLopuqkhGJyWbEEpjLAh/BwMeHpobSNK7sVCn37PJaHkh5Vv3ldjYHRejtpw18CAlEjIUooZNZQWwMZ1yh0OwQ==}
     hasBin: true
+
+  '@platforma-sdk/model@1.20.11':
+    resolution: {integrity: sha512-wfJQQ0EsMjmFaQz8iMvzpJLhdJ1KkYc30vk8OT8Tz+BPxXHA/w50ivRaOj7o4hFwdaKw+WZdjDOJk9v2b+QNig==}
 
   '@platforma-sdk/model@1.20.6':
     resolution: {integrity: sha512-fTL1Fb8w7k59ljnvc7TJvT1S2A2MVDNRG+ooDPP8B7OoeYCXw+7uD0k0DCOsANc5i+nNDH7GeVaudC805I89TA==}
@@ -6406,7 +6409,7 @@ snapshots:
       '@milaboratories/helpers': 1.6.10
       '@milaboratories/miplots4': 1.0.48(d3-dispatch@3.0.1)(d3-path@3.1.0)(d3-scale-chromatic@3.1.0)
       '@milaboratories/pf-plots': 1.0.59
-      '@platforma-sdk/model': 1.20.6
+      '@platforma-sdk/model': 1.20.11
       '@platforma-sdk/ui-vue': 1.20.10(typescript@5.6.3)
       '@types/d3-hierarchy': 3.1.7
       d3-hierarchy: 3.1.2
@@ -6454,7 +6457,7 @@ snapshots:
 
   '@milaboratories/pf-plots@1.0.59':
     dependencies:
-      '@platforma-sdk/model': 1.20.6
+      '@platforma-sdk/model': 1.20.11
       canonicalize: 2.0.0
       lodash: 4.17.21
 
@@ -6720,6 +6723,12 @@ snapshots:
       - aws-crt
       - supports-color
 
+  '@platforma-sdk/model@1.20.11':
+    dependencies:
+      '@milaboratories/pl-model-common': 1.10.1
+      utility-types: 3.11.0
+      zod: 3.23.8
+
   '@platforma-sdk/model@1.20.6':
     dependencies:
       '@milaboratories/pl-model-common': 1.10.1
@@ -6780,7 +6789,7 @@ snapshots:
       '@ag-grid-enterprise/server-side-row-model': 32.3.3
       '@ag-grid-enterprise/side-bar': 32.3.3
       '@milaboratories/uikit': 2.2.34(typescript@5.6.3)
-      '@platforma-sdk/model': 1.20.6
+      '@platforma-sdk/model': 1.20.11
       canonicalize: 2.0.0
       lru-cache: 11.0.2
       vue: 3.5.13(typescript@5.6.3)
