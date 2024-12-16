@@ -8,8 +8,7 @@ const app = useApp();
 
 const defaultOptions = computed((): GraphMakerProps['defaultOptions'] => {
     const overlapSpec = app.model.outputs.overlapSpec
-    console.log("Privet");
-
+    
     if (!overlapSpec) {
         return undefined
     }
