@@ -36,6 +36,10 @@ self.body(func(args) {
 		cmdBuilder = cmdBuilder.arg("--only-productive")
 	}
 
+	if !is_undefined(args.overlapCriteria) {
+		cmdBuilder = cmdBuilder.arg("--criteria").arg(args.overlapCriteria)
+	}
+
 	for name, f in filesMap {
 		cmdBuilder = cmdBuilder.arg(name + ".clns")
 	}
