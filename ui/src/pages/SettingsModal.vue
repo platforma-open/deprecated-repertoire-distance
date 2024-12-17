@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PlBtnGroup, PlCheckbox, PlDropdownRef, PlNumberField, PlSlideModal, PlTooltip } from '@platforma-sdk/ui-vue';
+import { PlBtnGroup, PlCheckbox, PlDropdown, PlDropdownRef, PlNumberField, PlSlideModal, PlTooltip } from '@platforma-sdk/ui-vue';
 import { computed, watch } from 'vue';
 import { useApp } from '../app';
 
@@ -141,34 +141,37 @@ watch(() => [app.model.ui.weight, hasCellTags, hasUmiTags], (_) => {
     }
 }, { deep: true, immediate: true });
 
-const geneTypes = [
+const overlapOptions = [
     {
-        label: "V usage",
-        value: "v"
+        value: 'CDR3|AA|V|J',
+        label: 'CDR3 AA and V and J hit'
     },
     {
-        label: "J usage",
-        value: "j"
-    }
-]
-
-const geneNameFormats = [
-    {
-        label: "Gene",
-        value: "gene"
+        value: 'CDR3|NT|V|J',
+        label: 'CDR3 NT and V and J hit'
     },
     {
-        label: "Family",
-        value: "family"
-    }
-]
+        value: 'CDR3|AA',
+        label: 'CDR3 AA'
+    },
+    {
+        value: 'CDR3|NT',
+        label: 'CDR3 NT'
+    },
+    {
+        value: 'VDJRegion|AA',
+        label: 'VDJ Region AA'
+    },
+];
 </script>
 
 <template>
     <PlSlideModal v-model="settingsAreShown">
         <template #title>Settings</template>
-        <PlDropdownRef v-model="app.model.args.clnsRef" :options="app.model.outputs.clnsOptions ?? []"
+        <PlDropdownRef v-model="app.model.args.clnsRef" :options="app.model.outputs.clnsOptions"
             label="Select dataset" />
+
+        <PlDropdown v-model="app.model.args.overlapCriteria" :options="overlapOptions" label="Overlap criteria" />
 
         <PlCheckbox v-model="app.model.args.onlyProductive">
             <div style="display: flex; gap: 6px">

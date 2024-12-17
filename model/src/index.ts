@@ -42,6 +42,7 @@ export type BlockArgs = {
   /* downsampling options */
   onlyProductive: boolean;
   dropOutliers: boolean;
+  overlapCriteria: string;
   downsampling?: string;
   weight?: WeightFunction;
 };
@@ -70,6 +71,7 @@ const getOverlapColumn = (ctx: CTX) => {
 
 export const model = BlockModel.create()
   .withArgs<BlockArgs>({
+    overlapCriteria: 'CDR3|AA|V|J',
     onlyProductive: true,
     dropOutliers: false
   })
