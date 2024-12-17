@@ -25,13 +25,16 @@
     "meta": {
       "title": "Repertoire Distance",
       "logo": "file:../logos/block-logo.png",
-      "url": "https://github.com/milaboratory/platforma-repertoire-distance",
-      "docs": "https://github.com/milaboratory/platforma-repertoire-distance/docs",
+      "url": "https://github.com/platforma-open/repertoire-distance",
+      "docs": "https://github.com/platforma-open/repertoire-distance/docs",
       "support": "mailto:support@milaboratories.com",
-      "description": "Simple Hello World block that can be used as a boilerplate for newly created blocks.",
+      "description": "Calculates an all-versus-all pairwise distance using a set of repertoire similarity measures",
       "longDescription": "file:../docs/description.md",
       "changelog": "file:../CHANGELOG.md",
-      "tags": ["tutorial"],
+      "tags": [
+        "vdj",
+        "downstream"
+      ],
       "organization": {
         "name": "MiLaboratories Inc",
         "url": "https://milaboratories.com/",
