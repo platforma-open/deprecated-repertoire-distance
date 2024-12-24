@@ -6,12 +6,12 @@ packages:
 
 catalog:
   '@platforma-sdk/workflow-tengo': ^2.8.3
-  '@platforma-sdk/model': ^1.20.11
+  '@platforma-sdk/model': ^1.21.10
   '@platforma-sdk/ui-vue': ^1.20.17
   '@platforma-sdk/tengo-builder': ^1.17.4
   '@platforma-sdk/block-tools': ^2.5.0
 
-  '@milaboratories/graph-maker': ^1.1.14
+  '@milaboratories/graph-maker': ^1.1.19
   '@milaboratories/software-pframes-conv': ^2.1.2
   '@platforma-open/milaboratories.software-small-binaries': ^1.15.0
   '@platforma-open/milaboratories.software-mixcr': 4.7.0-137-develop

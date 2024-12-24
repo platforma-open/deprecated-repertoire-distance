@@ -3,6 +3,7 @@ import {
   BlockModel,
   createPlDataTable,
   createPlDataTableSheet,
+  createPFrameForGraphs,
   getUniquePartitionKeys,
   InferOutputsType,
   isPColumn,
@@ -143,7 +144,7 @@ export const model = BlockModel.create()
       .filter(isPColumn)
       .filter((column) => valueTypes.find((valueType) => valueType === column.spec.valueType));
 
-    return ctx.createPFrame([...pCols, ...upstream]);
+    return createPFrameForGraphs(ctx, [...pCols, ...upstream]);
   })
 
   .output('isRunning', (ctx) => ctx.outputs?.getIsReadyOrError() === false)
