@@ -3,7 +3,7 @@ import { GraphMaker, GraphMakerProps } from "@milaboratories/graph-maker";
 import '@milaboratories/graph-maker/styles';
 import { computed, watch } from 'vue';
 import { useApp } from "../app";
-import { CalculateTableDataRequest, FindColumnsRequest, PObjectId } from '@platforma-sdk/model';
+import { FindColumnsRequest } from '@platforma-sdk/model';
 
 const app = useApp();
 
@@ -50,88 +50,25 @@ watch(() => app.model.outputs.pf, async (handle) => {
     strictlyCompatible: false
   } as FindColumnsRequest;
   const response1 = await platforma?.pFrameDriver.findColumns(handle!, request1);
-  const overlapId = response1?.hits[0].columnId;
+  const overlapColumn = response1?.hits[0];
 
-  const request2 = {
-    columnFilter: {
-      name: ['pl7.app/label'],
-      type: ['String'],
-      annotationValue: {"pl7.app/isLabel": "true", "pl7.app/label": "Sample"}
-    },
-    compatibleWith: [],
-    strictlyCompatible: false
-  } as FindColumnsRequest;
-  const response2 = await platforma?.pFrameDriver.findColumns(handle!, request2);
-  const labelsId = response2?.hits[0].columnId;
-
-  console.log(overlapId, labelsId)
+  console.log(overlapColumn?.spec)
 
   const request = {
-    "src": {
-      "type": "outer",
-      "primary": {
-        "type": "inner",
-        "entries": [
-          {
-            "type": "column",
-            "column": overlapId
-          }
-        ]
-      },
-      "secondary": [
-        {
-          "type": "column",
-          "column": labelsId
-        }
-      ]
+    "columnFilter": {
+      "type": ["String"],
+      "annotationValue": {}
     },
-    "filters": [
-      {
-        "type": "bySingleColumnV2",
-        "column": {
-          "type": "axis",
-          "id": {
-            "type": "String",
-            "name": "pl7.app/vdj/overlapMetric",
-            "domain": {}
-          }
-        },
-        "predicate": {
-          "operator": "Equal",
-          "reference": "F1Index"
-        }
-      },
-      {
-        "type": "bySingleColumnV2",
-        "column": {
-          "type": "axis",
-          "id": {
-            "type": "String",
-            "name": "pl7.app/vdj/chain",
-            "domain": {}
-          }
-        },
-        "predicate": {
-          "operator": "Equal",
-          "reference": "IGH"
-        }
-      }
-    ],
-    "sorting": []
-  } as unknown as CalculateTableDataRequest<PObjectId>;
-  const table = await platforma?.pFrameDriver.calculateTableData(handle!, request);
-  console.log('table:', table);
+    "compatibleWith": overlapColumn?.spec.axesSpec.map(spec => ({
+      type: spec.type,
+      name: spec.name,
+      domain: spec.domain
+    })),
+    "strictlyCompatible": true
+  } as FindColumnsRequest;
+  const columns = await platforma?.pFrameDriver.findColumns(handle!, request);
+  console.log('columns:', columns);
 
-  const labelsColumnRequest = {
-    src: {
-      type: 'column',
-      column: labelsId,
-    },
-    filters: [],
-    sorting: [],
-  } as unknown as CalculateTableDataRequest<PObjectId>;
-  const labelsColumn = await platforma?.pFrameDriver.calculateTableData(handle!, labelsColumnRequest)
-  console.log('labels:', labelsColumn);
 }, {immediate: true})
 </script>
 
