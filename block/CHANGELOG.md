@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance
 
+## 1.0.3
+
+### Patch Changes
+
+- b861eb3: chore: fix changelog
+
 ## 1.0.2
 
 ### Patch Changes
@@ -18,6 +24,6 @@
   - @platforma-open/milaboratories.repertoire-distance.ui@1.0.1
   - @platforma-open/milaboratories.repertoire-distance.workflow@1.0.1
 
- ## 1.0.0
+## 1.0.0
 
-Initial release. 
+Initial release.
