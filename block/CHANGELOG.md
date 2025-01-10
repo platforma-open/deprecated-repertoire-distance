@@ -17,3 +17,7 @@
   - @platforma-open/milaboratories.repertoire-distance.model@1.0.1
   - @platforma-open/milaboratories.repertoire-distance.ui@1.0.1
   - @platforma-open/milaboratories.repertoire-distance.workflow@1.0.1
+
+ ## 1.0.0
+
+Initial release. 

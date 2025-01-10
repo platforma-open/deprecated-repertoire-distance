@@ -30,7 +30,7 @@
       "support": "mailto:support@milaboratories.com",
       "description": "Calculates an all-versus-all pairwise distance using a set of repertoire similarity measures",
       "longDescription": "file:../docs/description.md",
-      "changelog": "file:../CHANGELOG.md",
+      "changelog": "file:./CHANGELOG.md",
       "tags": [
         "vdj",
         "downstream"
