@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance.ui
 
+## 1.1.0
+
+### Minor Changes
+
+- 9e3333d: Hide Weight function and Downsampling in Settings window
+
 ## 1.0.2
 
 ### Patch Changes
