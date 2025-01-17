@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PlBtnGroup, PlCheckbox, PlDropdown, PlDropdownRef, PlNumberField, PlSlideModal, PlTooltip } from '@platforma-sdk/ui-vue';
+import { PlAccordionSection, PlBtnGroup, PlCheckbox, PlDropdown, PlDropdownRef, PlNumberField, PlSlideModal, PlTooltip } from '@platforma-sdk/ui-vue';
 import { computed, watch } from 'vue';
 import { useApp } from '../app';
 
@@ -192,37 +192,41 @@ const overlapOptions = [
             </div>
         </PlCheckbox>
 
-        <PlBtnGroup v-model="app.model.ui.weight" :options="weightOptions" label="Weight function">
+        <!-- Content hidden until you click ADVANCED SETTINGS -->
+        <PlAccordionSection label="Advanced Settings">
+            <PlBtnGroup v-model="app.model.ui.weight" :options="weightOptions" label="Weight function">
             <template #tooltip>How to calculate weight of each clonotype</template>
-        </PlBtnGroup>
-
-        <PlBtnGroup v-model="app.model.ui.downsampling.type" :options="downsamplingType" label="Downsampling">
-            <template #tooltip>Downsampling is a required procedure without which it is not possible to make a
-                statistical
-                comparisons between datasets.</template>
-        </PlBtnGroup>
-
-        <PlBtnGroup
-            v-if="app.model.ui.downsampling.type !== 'auto' && app.model.ui.downsampling.type !== 'none' && tagOptions.length > 1"
-            v-model="app.model.ui.downsampling.tag" :options="tagOptions" label="Tag type">
-            <template #tooltip>Downsample by specified tag</template>
-        </PlBtnGroup>
-
-        <template v-if="app.model.ui.downsampling.type === 'count'">
-            <PlBtnGroup v-model="app.model.ui.downsampling.countNorm" :options="countNormOptions"
-                label="Normalization type">
             </PlBtnGroup>
 
-            <PlNumberField v-if="app.model.ui.downsampling.countNorm === 'fixed'"
-                v-model="app.model.ui.downsampling.countNormValue" label="Downsampling value" />
+            <PlBtnGroup v-model="app.model.ui.downsampling.type" :options="downsamplingType" label="Downsampling">
+                <template #tooltip>Downsampling is a required procedure without which it is not possible to make a
+                    statistical
+                    comparisons between datasets.</template>
+            </PlBtnGroup>
 
-        </template>
-        <template v-if="app.model.ui.downsampling.type === 'top'">
-            <PlNumberField v-model="app.model.ui.downsampling.topValue" label="Choose top" :minValue="0" />
-        </template>
-        <template v-if="app.model.ui.downsampling.type === 'cumtop'">
-            <PlNumberField v-model="app.model.ui.downsampling.cumtopValue" label="Choose top percent" :minValue="0"
-                :maxValue="100" />
-        </template>
+            <PlBtnGroup
+                v-if="app.model.ui.downsampling.type !== 'auto' && app.model.ui.downsampling.type !== 'none' && tagOptions.length > 1"
+                v-model="app.model.ui.downsampling.tag" :options="tagOptions" label="Tag type">
+                <template #tooltip>Downsample by specified tag</template>
+            </PlBtnGroup>
+
+            <template v-if="app.model.ui.downsampling.type === 'count'">
+                <PlBtnGroup v-model="app.model.ui.downsampling.countNorm" :options="countNormOptions"
+                    label="Normalization type">
+                </PlBtnGroup>
+
+                <PlNumberField v-if="app.model.ui.downsampling.countNorm === 'fixed'"
+                    v-model="app.model.ui.downsampling.countNormValue" label="Downsampling value" />
+
+            </template>
+            <template v-if="app.model.ui.downsampling.type === 'top'">
+                <PlNumberField v-model="app.model.ui.downsampling.topValue" label="Choose top" :minValue="0" />
+            </template>
+            <template v-if="app.model.ui.downsampling.type === 'cumtop'">
+                <PlNumberField v-model="app.model.ui.downsampling.cumtopValue" label="Choose top percent" :minValue="0"
+                    :maxValue="100" />
+            </template>
+        </PlAccordionSection>
+        
     </PlSlideModal>
 </template>
