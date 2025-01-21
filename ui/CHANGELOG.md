@@ -1,5 +1,16 @@
 # @platforma-open/milaboratories.repertoire-distance.ui
 
+## 1.2.0
+
+### Minor Changes
+
+- 9f6f988: Lock Run button until default settings are loaded
+
+### Patch Changes
+
+- Updated dependencies [9f6f988]
+  - @platforma-open/milaboratories.repertoire-distance.model@1.1.0
+
 ## 1.1.0
 
 ### Minor Changes
