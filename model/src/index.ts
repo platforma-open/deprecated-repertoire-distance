@@ -46,6 +46,7 @@ export type BlockArgs = {
   overlapCriteria: string;
   downsampling?: string;
   weight?: WeightFunction;
+  isReady?: boolean;
 };
 
 type CTX = RenderCtx<BlockArgs, UiState>;
@@ -74,7 +75,8 @@ export const model = BlockModel.create()
   .withArgs<BlockArgs>({
     overlapCriteria: 'CDR3|AA|V|J',
     onlyProductive: true,
-    dropOutliers: false
+    dropOutliers: false,
+    isReady: false
   })
   .withUiState<UiState>({
     blockTitle: 'Repertoire Distance',
@@ -100,7 +102,12 @@ export const model = BlockModel.create()
     }
   })
 
-  .argsValid((ctx) => ctx.args.downsampling !== undefined && ctx.args.weight !== undefined)
+  // Activate "Run" button only after these conditions get fulfilled
+  .argsValid((ctx) =>  ctx.args.clnsRef !== undefined &&
+                      // isReady is set to false while we compute dataset specific settings
+                      ctx.args.isReady === true && 
+                      ctx.args.downsampling !== undefined && 
+                      ctx.args.weight !== undefined)
 
   .output('clnsOptions', (ctx) =>
     ctx.resultPool.getOptions((spec) => isPColumnSpec(spec) && spec.name === 'mixcr.com/clns')
