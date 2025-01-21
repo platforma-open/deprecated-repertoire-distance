@@ -5,28 +5,28 @@ packages:
   - block
 
 catalog:
-  '@platforma-sdk/workflow-tengo': ^2.8.3
-  '@platforma-sdk/model': ^1.21.10
-  '@platforma-sdk/ui-vue': ^1.20.17
-  '@platforma-sdk/tengo-builder': ^1.17.4
-  '@platforma-sdk/block-tools': ^2.5.3
+  '@platforma-sdk/workflow-tengo': ^2.9.9
+  '@platforma-sdk/model': ^1.21.20
+  '@platforma-sdk/ui-vue': ^1.21.30
+  '@platforma-sdk/tengo-builder': ^1.17.5
+  '@platforma-sdk/block-tools': ^2.5.5
 
-  '@milaboratories/graph-maker': ^1.1.19
-  '@milaboratories/software-pframes-conv': ^2.1.2
-  '@platforma-open/milaboratories.software-small-binaries': ^1.15.0
+  '@milaboratories/graph-maker': ^1.1.29
+  '@milaboratories/software-pframes-conv': ^2.1.7
+  '@platforma-open/milaboratories.software-small-binaries': ^1.15.6
   '@platforma-open/milaboratories.software-mixcr': 4.7.0-137-develop
 
-  '@platforma-sdk/test': ^1.20.12
+  '@platforma-sdk/test': ^1.21.34
 
   'vue': ^3.5.13
-  'vue-tsc': ^2.1.10
+  'vue-tsc': ^2.2.0
 
   'typescript': ~5.6.3
   'tsup': ~8.3.5
   'turbo': ^2.3.3
 
-  'vite': ^6.0.3
+  'vite': ^6.0.11
   'vitest': ^2.1.8
   '@vitejs/plugin-vue': ^5.2.1
 
-  '@changesets/cli': ^2.27.10
+  '@changesets/cli': ^2.27.11
