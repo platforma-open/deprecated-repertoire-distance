@@ -132,13 +132,26 @@ watch(() => [app.model.ui.downsampling, cellTags, umiTags], (_) => {
     }
 }, { deep: true, immediate: true });
 
+watch(() => [app.model.args.clnsRef], (_) => {
+    // Block run button when there is a change in input data (clnsRef)
+    app.model.args.isReady = false
+}, { deep: true, immediate: true });
+
 watch(() => [app.model.ui.weight, hasCellTags, hasUmiTags], (_) => {
     const weight = app.model.ui.weight;
+    // Test if the selected option is among the allowed ones (This might not be 
+    // true when we switch between different datasets like scRNA to bulk)
+    if (!weightOptions.value.some(option => option.value === weight)) {
+        app.model.ui.weight = 'auto'
+        app.model.args.weight = 'auto'
+    }
     if (weight === 'auto') {
         app.model.args.weight = defaultWt.value;
     } else if (weight !== undefined) {
         app.model.args.weight = weight;
     }
+    // Unlock Run button after all settings are defined
+    app.model.args.isReady = true
 }, { deep: true, immediate: true });
 
 const overlapOptions = [
