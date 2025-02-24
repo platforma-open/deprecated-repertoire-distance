@@ -39,6 +39,7 @@ export type UiState = {
 
 export type BlockArgs = {
   clnsRef?: PlRef;
+  title?: string;
 
   /* downsampling options */
   onlyProductive: boolean;
@@ -144,19 +145,30 @@ export const model = BlockModel.create()
     }
 
     // enriching with upstream data
-    const valueTypes = ['Int', 'Long', 'Float', 'Double', 'String', 'Bytes'] as ValueType[];
-    const upstream = ctx.resultPool
+    const valueTypes = [
+      "Int",
+      "Long",
+      "Float",
+      "Double",
+      "String",
+      "Bytes",
+    ] as ValueType[];
+    const upstream = ctx.resultPool 
       .getData()
       .entries.map((v) => v.obj)
       .filter(isPColumn)
-      .filter((column) => valueTypes.find((valueType) => valueType === column.spec.valueType));
+      .filter((column) => 
+        valueTypes.find((valueType) => (valueType === column.spec.valueType) && (
+                                          column.id.includes("metadata"))
+                                        )
+      );
 
-    return createPFrameForGraphs(ctx, [...pCols, ...upstream]);
+      return createPFrameForGraphs(ctx, [...pCols, ...upstream]);
   })
 
   .output('isRunning', (ctx) => ctx.outputs?.getIsReadyOrError() === false)
 
-  .title((ctx) => ctx.uiState?.blockTitle ?? 'Repertoire Distance')
+  .title((ctx) => (ctx.args.title ? `Repertoire Distance - ${ctx.args.title}` : 'Repertoire Distance'))
 
   .sections([
     { type: 'link', href: '/', label: 'Tabular Results' },

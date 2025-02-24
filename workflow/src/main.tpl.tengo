@@ -18,10 +18,15 @@ wf.prepare(func(args){
 })
 
 wf.body(func(args) {
+	blockId := wf.blockId().getDataAsJson()
+	dropOutliers := args.dropOutliers
+
 	mixcr := render.create(mixcrTpl, args)
 
 	importOps := {
-		sampleIdAxisSpec: args.clns.spec.axesSpec[0]
+		inputSpec: args.clns.spec,
+		blockId: blockId,
+		dropOutliers: dropOutliers
 	}
 	for m in util.METRICS {
 		importOps[m] = mixcr.output(m)

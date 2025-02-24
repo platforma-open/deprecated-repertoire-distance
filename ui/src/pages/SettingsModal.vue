@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { PlAccordionSection, PlBtnGroup, PlCheckbox, PlDropdown, PlDropdownRef, PlNumberField, PlSlideModal, PlTooltip } from '@platforma-sdk/ui-vue';
+import type { PlRef } from '@platforma-sdk/model';
+import { plRefsEqual } from '@platforma-sdk/model';
 import { computed, watch } from 'vue';
 import { useApp } from '../app';
 
@@ -176,13 +178,23 @@ const overlapOptions = [
         label: 'VDJ Region AA'
     },
 ];
+
+const inputOptions = computed(() => app.model.outputs.clnsOptions);
+
+function setInput(inputRef?: PlRef) {
+  app.model.args.clnsRef = inputRef;
+  if (inputRef)
+    app.model.args.title = inputOptions.value?.find((o) => plRefsEqual(o.ref, inputRef))?.label;
+  else
+    app.model.args.title = undefined;
+}
 </script>
 
 <template>
     <PlSlideModal v-model="settingsAreShown">
         <template #title>Settings</template>
-        <PlDropdownRef v-model="app.model.args.clnsRef" :options="app.model.outputs.clnsOptions"
-            label="Select dataset" />
+        <PlDropdownRef v-model="app.model.args.clnsRef" :options="inputOptions ?? []"
+            label="Select dataset" @update:model-value="setInput" />
 
         <PlDropdown v-model="app.model.args.overlapCriteria" :options="overlapOptions" label="Overlap criteria" />
 
