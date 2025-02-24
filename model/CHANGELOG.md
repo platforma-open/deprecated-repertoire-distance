@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance.model
 
+## 1.2.0
+
+### Minor Changes
+
+- 7dd68c9: tracing and exported columns
+
 ## 1.1.0
 
 ### Minor Changes

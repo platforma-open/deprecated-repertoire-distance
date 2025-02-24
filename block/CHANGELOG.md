@@ -1,5 +1,14 @@
 # @platforma-open/milaboratories.repertoire-distance
 
+## 1.0.8
+
+### Patch Changes
+
+- Updated dependencies [7dd68c9]
+  - @platforma-open/milaboratories.repertoire-distance.workflow@1.1.0
+  - @platforma-open/milaboratories.repertoire-distance.model@1.2.0
+  - @platforma-open/milaboratories.repertoire-distance.ui@1.3.0
+
 ## 1.0.7
 
 ### Patch Changes
