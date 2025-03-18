@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance
 
+## 1.0.9
+
+### Patch Changes
+
+- aca6432: Updated tags and ranking
+
 ## 1.0.8
 
 ### Patch Changes
