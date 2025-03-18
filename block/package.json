@@ -32,14 +32,16 @@
       "longDescription": "file:../docs/description.md",
       "changelog": "file:./CHANGELOG.md",
       "tags": [
-        "vdj",
-        "downstream"
+        "airr",
+        "downstream",
+        "repertoire"
       ],
       "organization": {
         "name": "MiLaboratories Inc",
         "url": "https://milaboratories.com/",
         "logo": "file:../logos/milaboratories.png"
-      }
+      },
+      "marketplaceRanking": 16400
     }
   },
   "devDependencies": {
