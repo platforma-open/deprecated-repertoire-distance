@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance.ui
 
+## 1.3.1
+
+### Patch Changes
+
+- 7c1f22e: typescript version to 5.5.4
+
 ## 1.3.0
 
 ### Minor Changes
