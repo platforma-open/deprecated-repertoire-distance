@@ -1,5 +1,12 @@
 # @platforma-open/milaboratories.repertoire-distance.ui
 
+## 1.3.2
+
+### Patch Changes
+
+- Updated dependencies [e98e18e]
+  - @platforma-open/milaboratories.repertoire-distance.model@1.2.1
+
 ## 1.3.1
 
 ### Patch Changes
