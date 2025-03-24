@@ -6,13 +6,11 @@ import {
   createPFrameForGraphs,
   getUniquePartitionKeys,
   InferOutputsType,
-  isPColumn,
   isPColumnSpec,
   PColumnSpec,
   PlDataTableState,
   PlRef,
-  RenderCtx,
-  ValueType
+  RenderCtx
 } from '@platforma-sdk/model';
 
 type WeightFunction = 'auto' | 'read' | 'umi' | 'cell' | 'none';
@@ -140,30 +138,7 @@ export const model = BlockModel.create()
 
   .output('pf', (ctx) => {
     const pCols = ctx.outputs?.resolve('pf')?.getPColumns();
-    if (pCols === undefined) {
-      return undefined;
-    }
-
-    // enriching with upstream data
-    const valueTypes = [
-      "Int",
-      "Long",
-      "Float",
-      "Double",
-      "String",
-      "Bytes",
-    ] as ValueType[];
-    const upstream = ctx.resultPool 
-      .getData()
-      .entries.map((v) => v.obj)
-      .filter(isPColumn)
-      .filter((column) => 
-        valueTypes.find((valueType) => (valueType === column.spec.valueType) && (
-                                          column.id.includes("metadata"))
-                                        )
-      );
-
-      return createPFrameForGraphs(ctx, [...pCols, ...upstream]);
+    return createPFrameForGraphs(ctx, pCols);
   })
 
   .output('isRunning', (ctx) => ctx.outputs?.getIsReadyOrError() === false)
