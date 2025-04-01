@@ -5,18 +5,18 @@ packages:
   - block
 
 catalog:
-  '@platforma-sdk/workflow-tengo': ^2.16.1
-  '@platforma-sdk/model': ^1.23.4
-  '@platforma-sdk/ui-vue': ^1.23.4
-  '@platforma-sdk/tengo-builder': ^2.0.0
-  '@platforma-sdk/block-tools': ^2.5.22
+  '@platforma-sdk/workflow-tengo': ^3.2.0
+  '@platforma-sdk/model': ^1.25.0
+  '@platforma-sdk/ui-vue': ^1.25.2
+  '@platforma-sdk/tengo-builder': ^2.0.2
+  '@platforma-sdk/block-tools': ^2.5.28
 
-  '@milaboratories/graph-maker': ^1.1.58
-  '@milaboratories/software-pframes-conv': ^2.1.18
+  '@milaboratories/graph-maker': ^1.1.62
+  '@milaboratories/software-pframes-conv': ^2.1.20
   '@platforma-open/milaboratories.software-small-binaries': ^1.15.19
   '@platforma-open/milaboratories.software-mixcr': 4.7.0-139-develop
 
-  '@platforma-sdk/test': ^1.23.4
+  '@platforma-sdk/test': ^1.25.1
 
   'vue': ^3.5.13
   'vue-tsc': ^2.2.8
