@@ -41,8 +41,8 @@
         "url": "https://milaboratories.com/",
         "logo": "file:../logos/milaboratories.png"
       },
-      "marketplaceRanking": 16400
-    }
+      "marketplaceRanking": 16400,
+      "deprecated": true
   },
   "devDependencies": {
     "@platforma-sdk/block-tools": "catalog:"
