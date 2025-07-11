@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance
 
+## 1.0.13
+
+### Patch Changes
+
+- f5bf3f1: update sdk for deprecated label
+
 ## 1.0.12
 
 ### Patch Changes

@@ -1,0 +1,844 @@
+
+> @platforma-open/milaboratories.repertoire-distance@1.0.0 test:dry-run /home/runner/work/deprecated-repertoire-distance/deprecated-repertoire-distance
+> PL_PKG_DEV=local turbo run test --dry-run=json
+
+{
+  "id": "2zjfL5fWldLDYPxF4JijDUAYvgW",
+  "version": "1",
+  "turboVersion": "2.4.4",
+  "monorepo": true,
+  "globalCacheInputs": {
+    "rootKey": "I can’t see ya, but I know you’re here",
+    "files": {},
+    "hashOfExternalDependencies": "5e97814579d5b3b0",
+    "hashOfInternalDependencies": "",
+    "environmentVariables": {
+      "specified": {
+        "env": [],
+        "passThroughEnv": null
+      },
+      "configured": [],
+      "inferred": [],
+      "passthrough": null
+    },
+    "engines": null
+  },
+  "packages": [
+    "@platforma-open/milaboratories.repertoire-distance",
+    "@platforma-open/milaboratories.repertoire-distance.model",
+    "@platforma-open/milaboratories.repertoire-distance.ui",
+    "@platforma-open/milaboratories.repertoire-distance.workflow"
+  ],
+  "envMode": "strict",
+  "frameworkInference": true,
+  "tasks": [
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance#build",
+      "task": "build",
+      "package": "@platforma-open/milaboratories.repertoire-distance",
+      "hash": "7e93573b796d52d0",
+      "inputs": {
+        "CHANGELOG.md": "3e7aabf732b07a0bd93f021a310b2647537ff38a",
+        "package.json": "9c8cf5ca3f605bfd0bb56243efe226c3c00e8830"
+      },
+      "hashOfExternalDependencies": "d65b832d5221ac7c",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "rm -rf ./block-pack && block-tools pack",
+      "cliArguments": [],
+      "outputs": [
+        "./dist/**"
+      ],
+      "excludedOutputs": null,
+      "logFile": "block/.turbo/turbo-build.log",
+      "directory": "block",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance.model#build",
+        "@platforma-open/milaboratories.repertoire-distance.ui#build",
+        "@platforma-open/milaboratories.repertoire-distance.workflow#build"
+      ],
+      "dependents": [
+        "@platforma-open/milaboratories.repertoire-distance#test"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "./dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [
+          "PL_PKG_DEV"
+        ],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [
+            "PL_PKG_DEV"
+          ],
+          "passThroughEnv": null
+        },
+        "configured": [
+          "PL_PKG_DEV=25bf8e1a2393f1108d37029b3df5593236c755742ec93465bbafa9b290bddcf6"
+        ],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance#test",
+      "task": "test",
+      "package": "@platforma-open/milaboratories.repertoire-distance",
+      "hash": "70b1c4ef14555524",
+      "inputs": {
+        "CHANGELOG.md": "3e7aabf732b07a0bd93f021a310b2647537ff38a",
+        "package.json": "9c8cf5ca3f605bfd0bb56243efe226c3c00e8830"
+      },
+      "hashOfExternalDependencies": "d65b832d5221ac7c",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": null,
+      "excludedOutputs": null,
+      "logFile": "block/.turbo/turbo-test.log",
+      "directory": "block",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance#build",
+        "@platforma-open/milaboratories.repertoire-distance.model#build:dev",
+        "@platforma-open/milaboratories.repertoire-distance.ui#build:dev",
+        "@platforma-open/milaboratories.repertoire-distance.workflow#build:dev"
+      ],
+      "dependents": [],
+      "resolvedTaskDefinition": {
+        "outputs": [],
+        "cache": true,
+        "dependsOn": [
+          "^build:dev",
+          "build"
+        ],
+        "inputs": [],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": [
+          "DEBUG",
+          "PL_ADDRESS",
+          "PL_TEST_PASSWORD",
+          "PL_TEST_PROXY",
+          "PL_TEST_USER"
+        ],
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": [
+            "DEBUG",
+            "PL_ADDRESS",
+            "PL_TEST_PASSWORD",
+            "PL_TEST_PROXY",
+            "PL_TEST_USER"
+          ]
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": [
+          "PL_ADDRESS=83f9c7fec1cc29c9c3d71b605baa76ebebe1a51c052c0bfad1e37e9883b994fa",
+          "PL_TEST_PASSWORD=c638833f69bbfb3c267afa0a74434812436b8f08a81fd263c6be6871de4f1265",
+          "PL_TEST_USER=f85ac825d102b9f2d546aa1679ea991ae845994c1343730d564f3fcd0a2168c3"
+        ]
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.model#build",
+      "task": "build",
+      "package": "@platforma-open/milaboratories.repertoire-distance.model",
+      "hash": "83661512b866dbaa",
+      "inputs": {
+        "CHANGELOG.md": "2030753f26c80814e49056cc10d25530a4fd32f8",
+        "package.json": "58ab58a8448573d70f3ae00fd66b8713d48080fc",
+        "src/index.ts": "d56897565a2a050d590b87c4fc6924edd77cd9af",
+        "tsconfig.json": "4593cbadcd4a4144c813512c01f58573b4b0425c",
+        "vite.config.mts": "a500058540e1b93dbfd5840e46f7823affd46a97"
+      },
+      "hashOfExternalDependencies": "4e869f5d8a1a9110",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "tsup && vite build && block-tools build-model",
+      "cliArguments": [],
+      "outputs": [
+        "./dist/**"
+      ],
+      "excludedOutputs": null,
+      "logFile": "model/.turbo/turbo-build.log",
+      "directory": "model",
+      "dependencies": [],
+      "dependents": [
+        "@platforma-open/milaboratories.repertoire-distance#build",
+        "@platforma-open/milaboratories.repertoire-distance.model#build:dev",
+        "@platforma-open/milaboratories.repertoire-distance.model#test",
+        "@platforma-open/milaboratories.repertoire-distance.ui#build"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "./dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [
+          "PL_PKG_DEV"
+        ],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "vite",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [
+            "PL_PKG_DEV"
+          ],
+          "passThroughEnv": null
+        },
+        "configured": [
+          "PL_PKG_DEV=25bf8e1a2393f1108d37029b3df5593236c755742ec93465bbafa9b290bddcf6"
+        ],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.model#build:dev",
+      "task": "build:dev",
+      "package": "@platforma-open/milaboratories.repertoire-distance.model",
+      "hash": "31c1435a1f29b098",
+      "inputs": {
+        "CHANGELOG.md": "2030753f26c80814e49056cc10d25530a4fd32f8",
+        "package.json": "58ab58a8448573d70f3ae00fd66b8713d48080fc",
+        "src/index.ts": "d56897565a2a050d590b87c4fc6924edd77cd9af",
+        "tsconfig.json": "4593cbadcd4a4144c813512c01f58573b4b0425c",
+        "vite.config.mts": "a500058540e1b93dbfd5840e46f7823affd46a97"
+      },
+      "hashOfExternalDependencies": "4e869f5d8a1a9110",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        "./dist/**"
+      ],
+      "excludedOutputs": null,
+      "logFile": "model/.turbo/turbo-build$colon$dev.log",
+      "directory": "model",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance.model#build"
+      ],
+      "dependents": [
+        "@platforma-open/milaboratories.repertoire-distance#test",
+        "@platforma-open/milaboratories.repertoire-distance.ui#test"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "./dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "build"
+        ],
+        "inputs": [],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "vite",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.model#test",
+      "task": "test",
+      "package": "@platforma-open/milaboratories.repertoire-distance.model",
+      "hash": "15d0e226ce3bb7d8",
+      "inputs": {
+        "CHANGELOG.md": "2030753f26c80814e49056cc10d25530a4fd32f8",
+        "package.json": "58ab58a8448573d70f3ae00fd66b8713d48080fc",
+        "src/index.ts": "d56897565a2a050d590b87c4fc6924edd77cd9af",
+        "tsconfig.json": "4593cbadcd4a4144c813512c01f58573b4b0425c",
+        "vite.config.mts": "a500058540e1b93dbfd5840e46f7823affd46a97"
+      },
+      "hashOfExternalDependencies": "4e869f5d8a1a9110",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": null,
+      "excludedOutputs": null,
+      "logFile": "model/.turbo/turbo-test.log",
+      "directory": "model",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance.model#build"
+      ],
+      "dependents": [],
+      "resolvedTaskDefinition": {
+        "outputs": [],
+        "cache": true,
+        "dependsOn": [
+          "^build:dev",
+          "build"
+        ],
+        "inputs": [],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": [
+          "DEBUG",
+          "PL_ADDRESS",
+          "PL_TEST_PASSWORD",
+          "PL_TEST_PROXY",
+          "PL_TEST_USER"
+        ],
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "vite",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": [
+            "DEBUG",
+            "PL_ADDRESS",
+            "PL_TEST_PASSWORD",
+            "PL_TEST_PROXY",
+            "PL_TEST_USER"
+          ]
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": [
+          "PL_ADDRESS=83f9c7fec1cc29c9c3d71b605baa76ebebe1a51c052c0bfad1e37e9883b994fa",
+          "PL_TEST_PASSWORD=c638833f69bbfb3c267afa0a74434812436b8f08a81fd263c6be6871de4f1265",
+          "PL_TEST_USER=f85ac825d102b9f2d546aa1679ea991ae845994c1343730d564f3fcd0a2168c3"
+        ]
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.ui#build",
+      "task": "build",
+      "package": "@platforma-open/milaboratories.repertoire-distance.ui",
+      "hash": "33e2117544ca94ad",
+      "inputs": {
+        "CHANGELOG.md": "f9a4819f57d175a194314a6355474255570e9057",
+        "index.html": "e37ab12ef6090a1380237b55964f225b48d02cfc",
+        "package.json": "bb8c45f1bc8e2b4b704e48a944fc05b1e3cf5cc3",
+        "src/app.ts": "1224dc123c8ed5a6eb8060ee4f11b58afb48ac9e",
+        "src/main.ts": "5968a38589aea108267ee78b3f11ef05a07c015c",
+        "src/pages/GraphPage.vue": "8426e9b5bfc1d1065ed5f16acb3fb59ef5a64129",
+        "src/pages/MainPage.vue": "4b026fc2251043d6028c983fcd0c6df8e20858b6",
+        "src/pages/SettingsModal.vue": "b15533217651f343746d17179ea69a0e2a2401d9",
+        "tsconfig.app.json": "5adc789fed8f79dd8a6bfeadbdc1c33b35c7ac96",
+        "tsconfig.json": "ea9d0cd8255683d84f125948115daf1de0f06b1f",
+        "tsconfig.node.json": "3afdd6e38438be7612befbd4b656af7bed27a31a",
+        "vite.config.ts": "ceba5c1e493fbb9ca427cafeaee520f6e19cd06d"
+      },
+      "hashOfExternalDependencies": "b33a9ff2c4bdad00",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "vue-tsc -b && vite build",
+      "cliArguments": [],
+      "outputs": [
+        "./dist/**"
+      ],
+      "excludedOutputs": null,
+      "logFile": "ui/.turbo/turbo-build.log",
+      "directory": "ui",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance.model#build"
+      ],
+      "dependents": [
+        "@platforma-open/milaboratories.repertoire-distance#build",
+        "@platforma-open/milaboratories.repertoire-distance.ui#build:dev",
+        "@platforma-open/milaboratories.repertoire-distance.ui#test"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "./dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [
+          "PL_PKG_DEV"
+        ],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "vite",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [
+            "PL_PKG_DEV"
+          ],
+          "passThroughEnv": null
+        },
+        "configured": [
+          "PL_PKG_DEV=25bf8e1a2393f1108d37029b3df5593236c755742ec93465bbafa9b290bddcf6"
+        ],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.ui#build:dev",
+      "task": "build:dev",
+      "package": "@platforma-open/milaboratories.repertoire-distance.ui",
+      "hash": "c446aa716a57b810",
+      "inputs": {
+        "CHANGELOG.md": "f9a4819f57d175a194314a6355474255570e9057",
+        "index.html": "e37ab12ef6090a1380237b55964f225b48d02cfc",
+        "package.json": "bb8c45f1bc8e2b4b704e48a944fc05b1e3cf5cc3",
+        "src/app.ts": "1224dc123c8ed5a6eb8060ee4f11b58afb48ac9e",
+        "src/main.ts": "5968a38589aea108267ee78b3f11ef05a07c015c",
+        "src/pages/GraphPage.vue": "8426e9b5bfc1d1065ed5f16acb3fb59ef5a64129",
+        "src/pages/MainPage.vue": "4b026fc2251043d6028c983fcd0c6df8e20858b6",
+        "src/pages/SettingsModal.vue": "b15533217651f343746d17179ea69a0e2a2401d9",
+        "tsconfig.app.json": "5adc789fed8f79dd8a6bfeadbdc1c33b35c7ac96",
+        "tsconfig.json": "ea9d0cd8255683d84f125948115daf1de0f06b1f",
+        "tsconfig.node.json": "3afdd6e38438be7612befbd4b656af7bed27a31a",
+        "vite.config.ts": "ceba5c1e493fbb9ca427cafeaee520f6e19cd06d"
+      },
+      "hashOfExternalDependencies": "b33a9ff2c4bdad00",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        "./dist/**"
+      ],
+      "excludedOutputs": null,
+      "logFile": "ui/.turbo/turbo-build$colon$dev.log",
+      "directory": "ui",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance.ui#build"
+      ],
+      "dependents": [
+        "@platforma-open/milaboratories.repertoire-distance#test"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "./dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "build"
+        ],
+        "inputs": [],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "vite",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.ui#test",
+      "task": "test",
+      "package": "@platforma-open/milaboratories.repertoire-distance.ui",
+      "hash": "c61d05ce91623b5f",
+      "inputs": {
+        "CHANGELOG.md": "f9a4819f57d175a194314a6355474255570e9057",
+        "index.html": "e37ab12ef6090a1380237b55964f225b48d02cfc",
+        "package.json": "bb8c45f1bc8e2b4b704e48a944fc05b1e3cf5cc3",
+        "src/app.ts": "1224dc123c8ed5a6eb8060ee4f11b58afb48ac9e",
+        "src/main.ts": "5968a38589aea108267ee78b3f11ef05a07c015c",
+        "src/pages/GraphPage.vue": "8426e9b5bfc1d1065ed5f16acb3fb59ef5a64129",
+        "src/pages/MainPage.vue": "4b026fc2251043d6028c983fcd0c6df8e20858b6",
+        "src/pages/SettingsModal.vue": "b15533217651f343746d17179ea69a0e2a2401d9",
+        "tsconfig.app.json": "5adc789fed8f79dd8a6bfeadbdc1c33b35c7ac96",
+        "tsconfig.json": "ea9d0cd8255683d84f125948115daf1de0f06b1f",
+        "tsconfig.node.json": "3afdd6e38438be7612befbd4b656af7bed27a31a",
+        "vite.config.ts": "ceba5c1e493fbb9ca427cafeaee520f6e19cd06d"
+      },
+      "hashOfExternalDependencies": "b33a9ff2c4bdad00",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": null,
+      "excludedOutputs": null,
+      "logFile": "ui/.turbo/turbo-test.log",
+      "directory": "ui",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance.model#build:dev",
+        "@platforma-open/milaboratories.repertoire-distance.ui#build"
+      ],
+      "dependents": [],
+      "resolvedTaskDefinition": {
+        "outputs": [],
+        "cache": true,
+        "dependsOn": [
+          "^build:dev",
+          "build"
+        ],
+        "inputs": [],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": [
+          "DEBUG",
+          "PL_ADDRESS",
+          "PL_TEST_PASSWORD",
+          "PL_TEST_PROXY",
+          "PL_TEST_USER"
+        ],
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "vite",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": [
+            "DEBUG",
+            "PL_ADDRESS",
+            "PL_TEST_PASSWORD",
+            "PL_TEST_PROXY",
+            "PL_TEST_USER"
+          ]
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": [
+          "PL_ADDRESS=83f9c7fec1cc29c9c3d71b605baa76ebebe1a51c052c0bfad1e37e9883b994fa",
+          "PL_TEST_PASSWORD=c638833f69bbfb3c267afa0a74434812436b8f08a81fd263c6be6871de4f1265",
+          "PL_TEST_USER=f85ac825d102b9f2d546aa1679ea991ae845994c1343730d564f3fcd0a2168c3"
+        ]
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.workflow#build",
+      "task": "build",
+      "package": "@platforma-open/milaboratories.repertoire-distance.workflow",
+      "hash": "80e5bc87083ee4a4",
+      "inputs": {
+        "CHANGELOG.md": "dd673c0dc86ebea6d02a88a127c5b644417a0853",
+        "format.el": "b168a1ac097463794e06d0e92c1e11da73486887",
+        "index.d.ts": "9b27fb746128717f87ece0d519889a7316f0ebe1",
+        "index.js": "0d329ed26581b8a6b923fe89eb0ceae7cfac0440",
+        "package.json": "64617d42653e935492d1901a3e4cf247d220f8a8",
+        "src/importTsv.tpl.tengo": "f3be26e9579fffc305127bc6ace4df108e21e0cd",
+        "src/main.tpl.tengo": "14d6b83e6e74a42ba07a078886f01bcb6e21ff91",
+        "src/mixcr.tpl.tengo": "3e57decc8abf2b4952afa7439481e28ba1449a1a",
+        "src/util.lib.tengo": "dff4d927f93d66c2d2ae295cb15dd36f5d08904f",
+        "tsconfig.json": "4593cbadcd4a4144c813512c01f58573b4b0425c",
+        "vitest.config.mts": "dc17fea1dbe2168df421989cab76b13cfe60db22"
+      },
+      "hashOfExternalDependencies": "9bc68259714e266c",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "rm -rf dist && pl-tengo check && pl-tengo build",
+      "cliArguments": [],
+      "outputs": [
+        "./dist/**"
+      ],
+      "excludedOutputs": null,
+      "logFile": "workflow/.turbo/turbo-build.log",
+      "directory": "workflow",
+      "dependencies": [],
+      "dependents": [
+        "@platforma-open/milaboratories.repertoire-distance#build",
+        "@platforma-open/milaboratories.repertoire-distance.workflow#build:dev",
+        "@platforma-open/milaboratories.repertoire-distance.workflow#test"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "./dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [
+          "PL_PKG_DEV"
+        ],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [
+            "PL_PKG_DEV"
+          ],
+          "passThroughEnv": null
+        },
+        "configured": [
+          "PL_PKG_DEV=25bf8e1a2393f1108d37029b3df5593236c755742ec93465bbafa9b290bddcf6"
+        ],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.workflow#build:dev",
+      "task": "build:dev",
+      "package": "@platforma-open/milaboratories.repertoire-distance.workflow",
+      "hash": "d79aa05fa318afb1",
+      "inputs": {
+        "CHANGELOG.md": "dd673c0dc86ebea6d02a88a127c5b644417a0853",
+        "format.el": "b168a1ac097463794e06d0e92c1e11da73486887",
+        "index.d.ts": "9b27fb746128717f87ece0d519889a7316f0ebe1",
+        "index.js": "0d329ed26581b8a6b923fe89eb0ceae7cfac0440",
+        "package.json": "64617d42653e935492d1901a3e4cf247d220f8a8",
+        "src/importTsv.tpl.tengo": "f3be26e9579fffc305127bc6ace4df108e21e0cd",
+        "src/main.tpl.tengo": "14d6b83e6e74a42ba07a078886f01bcb6e21ff91",
+        "src/mixcr.tpl.tengo": "3e57decc8abf2b4952afa7439481e28ba1449a1a",
+        "src/util.lib.tengo": "dff4d927f93d66c2d2ae295cb15dd36f5d08904f",
+        "tsconfig.json": "4593cbadcd4a4144c813512c01f58573b4b0425c",
+        "vitest.config.mts": "dc17fea1dbe2168df421989cab76b13cfe60db22"
+      },
+      "hashOfExternalDependencies": "9bc68259714e266c",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        "./dist/**"
+      ],
+      "excludedOutputs": null,
+      "logFile": "workflow/.turbo/turbo-build$colon$dev.log",
+      "directory": "workflow",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance.workflow#build"
+      ],
+      "dependents": [
+        "@platforma-open/milaboratories.repertoire-distance#test"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "./dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "build"
+        ],
+        "inputs": [],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@platforma-open/milaboratories.repertoire-distance.workflow#test",
+      "task": "test",
+      "package": "@platforma-open/milaboratories.repertoire-distance.workflow",
+      "hash": "aced2cbcf69c1dbd",
+      "inputs": {
+        "CHANGELOG.md": "dd673c0dc86ebea6d02a88a127c5b644417a0853",
+        "format.el": "b168a1ac097463794e06d0e92c1e11da73486887",
+        "index.d.ts": "9b27fb746128717f87ece0d519889a7316f0ebe1",
+        "index.js": "0d329ed26581b8a6b923fe89eb0ceae7cfac0440",
+        "package.json": "64617d42653e935492d1901a3e4cf247d220f8a8",
+        "src/importTsv.tpl.tengo": "f3be26e9579fffc305127bc6ace4df108e21e0cd",
+        "src/main.tpl.tengo": "14d6b83e6e74a42ba07a078886f01bcb6e21ff91",
+        "src/mixcr.tpl.tengo": "3e57decc8abf2b4952afa7439481e28ba1449a1a",
+        "src/util.lib.tengo": "dff4d927f93d66c2d2ae295cb15dd36f5d08904f",
+        "tsconfig.json": "4593cbadcd4a4144c813512c01f58573b4b0425c",
+        "vitest.config.mts": "dc17fea1dbe2168df421989cab76b13cfe60db22"
+      },
+      "hashOfExternalDependencies": "9bc68259714e266c",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": null,
+      "excludedOutputs": null,
+      "logFile": "workflow/.turbo/turbo-test.log",
+      "directory": "workflow",
+      "dependencies": [
+        "@platforma-open/milaboratories.repertoire-distance.workflow#build"
+      ],
+      "dependents": [],
+      "resolvedTaskDefinition": {
+        "outputs": [],
+        "cache": true,
+        "dependsOn": [
+          "^build:dev",
+          "build"
+        ],
+        "inputs": [],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": [
+          "DEBUG",
+          "PL_ADDRESS",
+          "PL_TEST_PASSWORD",
+          "PL_TEST_PROXY",
+          "PL_TEST_USER"
+        ],
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": [
+            "DEBUG",
+            "PL_ADDRESS",
+            "PL_TEST_PASSWORD",
+            "PL_TEST_PROXY",
+            "PL_TEST_USER"
+          ]
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": [
+          "PL_ADDRESS=83f9c7fec1cc29c9c3d71b605baa76ebebe1a51c052c0bfad1e37e9883b994fa",
+          "PL_TEST_PASSWORD=c638833f69bbfb3c267afa0a74434812436b8f08a81fd263c6be6871de4f1265",
+          "PL_TEST_USER=f85ac825d102b9f2d546aa1679ea991ae845994c1343730d564f3fcd0a2168c3"
+        ]
+      }
+    }
+  ],
+  "user": "github-merge-queue[bot]",
+  "scm": {
+    "type": "git",
+    "sha": "531c4cb0da46d4fd081a545a9dd8dac9ffa842f2",
+    "branch": "main"
+  }
+}
+
