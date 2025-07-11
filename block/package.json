@@ -43,6 +43,7 @@
       },
       "marketplaceRanking": 16400,
       "deprecated": true
+    }
   },
   "devDependencies": {
     "@platforma-sdk/block-tools": "catalog:"
