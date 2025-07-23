@@ -9,7 +9,7 @@ catalog:
   '@platforma-sdk/model': ^1.25.0
   '@platforma-sdk/ui-vue': ^1.25.2
   '@platforma-sdk/tengo-builder': ^2.0.2
-  '@platforma-sdk/block-tools': ^2.5.68
+  '@platforma-sdk/block-tools': ^2.5.72
 
   '@milaboratories/graph-maker': ^1.1.62
   '@milaboratories/software-pframes-conv': ^2.1.20

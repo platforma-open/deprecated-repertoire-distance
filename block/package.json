@@ -23,7 +23,7 @@
       "ui": "@platforma-open/milaboratories.repertoire-distance.ui/dist"
     },
     "meta": {
-      "title": "Repertoire Distance",
+      "title": "Repertoire Distance (Deprecated)",
       "logo": "file:../logos/block-logo.png",
       "url": "https://github.com/platforma-open/repertoire-distance",
       "docs": "https://github.com/platforma-open/repertoire-distance/docs",
