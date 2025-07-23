@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance
 
+## 1.0.14
+
+### Patch Changes
+
+- 52f2fc6: Block deprecated.
+
 ## 1.0.13
 
 ### Patch Changes
