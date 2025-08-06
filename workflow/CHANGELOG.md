@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance.workflow
 
+## 1.1.2
+
+### Patch Changes
+
+- e4d5481: Remove from add block view.
+
 ## 1.1.1
 
 ### Patch Changes

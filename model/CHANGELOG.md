@@ -1,5 +1,11 @@
 # @platforma-open/milaboratories.repertoire-distance.model
 
+## 1.2.2
+
+### Patch Changes
+
+- e4d5481: Remove from add block view.
+
 ## 1.2.1
 
 ### Patch Changes
