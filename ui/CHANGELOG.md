@@ -1,5 +1,13 @@
 # @platforma-open/milaboratories.repertoire-distance.ui
 
+## 1.3.5
+
+### Patch Changes
+
+- 8c2b2b4: Removed from Add Block
+- Updated dependencies [8c2b2b4]
+  - @platforma-open/milaboratories.repertoire-distance.model@1.2.3
+
 ## 1.3.4
 
 ### Patch Changes
